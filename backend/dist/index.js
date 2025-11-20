@@ -42,7 +42,7 @@ app.use(`${BASE_PATH}/transaction`, passport_config_1.passportAuthenticateJwt, t
 app.use(`${BASE_PATH}/report`, passport_config_1.passportAuthenticateJwt, report_route_1.default);
 app.use(`${BASE_PATH}/analytics`, passport_config_1.passportAuthenticateJwt, analytics_route_1.default);
 app.use(errorHandler_middleware_1.errorHandler);
-app.listen(env_config_1.Env.PORT, async () => {
+app.listen(env_config_1.Env.PORT || 4000, async () => {
     await (0, database_config_1.default)();
     if (env_config_1.Env.NODE_ENV === "development") {
         await (0, cron_1.initializeCrons)();

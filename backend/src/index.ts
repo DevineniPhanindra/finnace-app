@@ -51,7 +51,7 @@ app.use(`${BASE_PATH}/analytics`, passportAuthenticateJwt, analyticsRoutes);
 
 app.use(errorHandler);
 
-app.listen(Env.PORT, async () => {
+app.listen(Env.PORT || 4000, async () => {
   await connctDatabase();
 
   if (Env.NODE_ENV === "development") {
